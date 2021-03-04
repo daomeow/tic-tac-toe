@@ -1,10 +1,11 @@
 class Player {
-  constructor(id, token) {
+  constructor(id, turn, token) {
     this.id = id;
+    this.turn = turn;
     this.token = token;
     this.wins = 0;
   }
-  
+
   saveWinsToStorage(myObj) {
     var stringifiedObj =  JSON.stringify(myObj);
     localStorage.setItem('storeMyself', stringifiedObj);
