@@ -5,12 +5,18 @@ class Game {
     this.activeSpots = [];
     this.turn = turn;
   }
+  
   detectDraw() {
   }
   
   //win conditions
   saveWin() {
-  }
+    if (this.player[0].hasWon) {
+      this.player[0].wins++;
+    } else {
+      this.player[1].wins++;
+    }
+  } 
 
   resetGame() {
   }
