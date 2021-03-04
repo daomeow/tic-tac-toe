@@ -1,0 +1,19 @@
+* {
+  border: 1px solid red
+  }
+
+  .body {
+    display: flex;
+    flex-direction: row;
+  }
+
+.player1-sidebar,
+.player2-sidebar,
+.main-container {
+  width: 20px;
+  height: 20px;
+  }
+
+  .visibility-hidden {
+    visibility: hidden;
+  }
