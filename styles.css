@@ -1,5 +1,5 @@
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   }
 
   /* ***** GLOBAL RULES ***** */
@@ -7,14 +7,13 @@ body {
   display: flex; 
   justify-content: space-between;
   height: 98vh;
+  font-family: 'Shippori Mincho B1', serif; 
   }
 
 /* ***** SIDEBARS ***** */  
 .player1-sidebar,
 .player2-sidebar {
   width: 30em;
-  /* margin-left: 0; */
-  /* height: 100%; */
   background-color: #c5ecdf;
   display: flex;
   flex-direction: column;
@@ -26,21 +25,37 @@ h2 {
   margin: 1.5em 0 0 0;
 }
 
-p {
+h3 {
   font-size: 2em;
   margin-top: 0;
-  font-family: 'Shippori Mincho B1', serif; 
+  /* font-family: 'Shippori Mincho B1', serif;  */
   font-weight: 600;
 }
-
-
 
   /* ***** MIDDLE ***** */
 .main-container {
   width: 100%;
-  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+}
+  
+h1 {
+  font-size: 3em;
 }
 
+.board-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 37em;
+}
+.spot {
+  height: 11em;
+  width: 12em;
+}
+
+
+
+
   .visibility-hidden {
-    visibility: hidden;
+    display: none;
   }
