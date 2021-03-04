@@ -1,10 +1,10 @@
 * {
-  border: 1px solid red
+  border: 1px solid red;
   }
 
-  .body {
-    display: flex;
-    flex-direction: row;
+body {
+  display: flex; 
+  flex-direction: row;
   }
 
 .player1-sidebar,
