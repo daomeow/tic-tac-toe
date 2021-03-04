@@ -1,18 +1,45 @@
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   }
 
+  /* ***** GLOBAL RULES ***** */
 body {
   display: flex; 
-  flex-direction: row;
+  justify-content: space-between;
+  height: 98vh;
   }
 
+/* ***** SIDEBARS ***** */  
 .player1-sidebar,
-.player2-sidebar,
+.player2-sidebar {
+  width: 30em;
+  /* margin-left: 0; */
+  /* height: 100%; */
+  background-color: #c5ecdf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 4em;
+  margin: 1.5em 0 0 0;
+}
+
+p {
+  font-size: 2em;
+  margin-top: 0;
+  font-family: 'Shippori Mincho B1', serif; 
+  font-weight: 600;
+}
+
+
+
+  /* ***** MIDDLE ***** */
 .main-container {
-  width: 20px;
-  height: 20px;
-  }
+  width: 100%;
+  /* height: 100%; */
+}
 
   .visibility-hidden {
     visibility: hidden;
