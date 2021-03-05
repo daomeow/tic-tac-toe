@@ -7,14 +7,15 @@ class Player {
     this.hasWon = false;
   }
 
-  saveWinsToStorage(myObj) {
-    var stringifiedObj =  JSON.stringify(myObj);
-    localStorage.setItem('storeMyself', stringifiedObj);
+  saveWinsToStorage() {
+    var winToStore = this.wins;
+    var stringifiedWin =  JSON.stringify(winToStore);
+    localStorage.setItem(`player ${this.id}`, stringifiedWin);
   }
 
   retrieveWinsFromStorage() {
-    var retrieveObj = localStorage.getItem('storeMyself');
-    var parsedObj = JSON.parse(retrieveObj);
-    return parsedObj;
+    var retrieveWin = localStorage.getItem('storeMyself');
+    var parsedWin = JSON.parse(retrieveWin);
+    return parsedWin;
   }
 }
