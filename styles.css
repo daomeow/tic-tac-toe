@@ -79,24 +79,39 @@ h1 {
 }
 
 .player1-playLeft,
-.player2-playLeft {
+.player2-playLeft,
+.player1-playLeft2,
+.player2-playLeft2 {
   position: absolute;
   font-size: 4em;
   padding-left: 1.2em;
 }
 
 .player1-playMiddle,
-.player2-playMiddle {
+.player2-playMiddle,
+.player1-playMiddle2,
+.player2-playMiddle2 {
   position: absolute;
   font-size: 4em;
   padding-left: 4.1em;
 }
 
 .player1-playRight,
-.player2-playRight {
+.player2-playRight,
+.player1-playRight2,
+.player12-playRight2 {
   position: absolute;
   font-size: 4em;
   padding-left: 7em;
+}
+
+.player1-playLeft2,
+.player2-playLeft2,
+.player1-playMiddle2,
+.player2-playMiddle2,
+.player1-playRight2,
+.player12-playRight2 {
+  padding-top: 2.5em;
 }
 
 .visibility-hidden {
