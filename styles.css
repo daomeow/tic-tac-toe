@@ -1,5 +1,5 @@
 * {
-  border: 1px solid red
+  /* border: 1px solid red */
   }
 
   /* ***** GLOBAL RULES ***** */
@@ -79,39 +79,32 @@ h1 {
 }
 
 .player1-playLeft,
-.player2-playLeft,
-.player1-playLeft2,
-.player2-playLeft2 {
+.player2-playLeft {
   position: absolute;
   font-size: 4em;
   padding-left: 1.2em;
 }
 
 .player1-playMiddle,
-.player2-playMiddle,
-.player1-playMiddle2,
-.player2-playMiddle2 {
+.player2-playMiddle {
   position: absolute;
   font-size: 4em;
   padding-left: 4.1em;
 }
 
 .player1-playRight,
-.player2-playRight,
-.player1-playRight2,
-.player12-playRight2 {
+.player2-playRight {
   position: absolute;
   font-size: 4em;
   padding-left: 7em;
 }
 
-.player1-playLeft2,
-.player2-playLeft2,
-.player1-playMiddle2,
-.player2-playMiddle2,
-.player1-playRight2,
-.player12-playRight2 {
+.middle-row {
   padding-top: 2.5em;
+}
+
+.bottom-row {
+  padding-top: 5em;
 }
 
 .visibility-hidden {
