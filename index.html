@@ -10,29 +10,29 @@
   <body>
     <aside class="player1-sidebar">
       <h2>🦊</h2>
-      <h3 class="player1-wins">2 wins!</h3>
+      <h3 class="player1-wins">0 wins!</h3>
     </aside>
-    
     <main class="main-container">
-      <h1 class="player1-turn">It's 🦊's turn</h1>
-      <h1 class="player2-turn visibility-hidden">It's 🐙's turn</h1>
+      <h1 class="player1-turn" id="player1Turn">It's 🦊's turn</h1>
+      <h1 class="player2-turn visibility-hidden" id="player2Turn">It's 🐙's turn</h1>
       <section class="board-container">
-        <p class="spot a"></p>
-        <p class="spot b"><p>
-        <p class="spot c"><p>    
-        <p class="spot d"><p>
-        <p class="spot e"><p>
-        <p class="spot f"><p>
-        <p class="spot g"><p>
-        <p class="spot h"><p>
-        <p class="spot i"><p>
+        <p class="spot a" id="a"></p>
+        <p class="spot b" id="b"></p>
+        <p class="spot c" id="c"></p>    
+        <p class="spot d" id="d"></p>
+        <p class="spot e" id="e"></p>
+        <p class="spot f" id="f"></p>
+        <p class="spot g" id="g"></p>
+        <p class="spot h" id="h"></p>
+        <p class="spot i" id="i"></p>
       </section>
     </main>
-    
     <aside class="player2-sidebar">
       <h2>🐙</h2>
-      <h3 class="player2-wins">2 wins!</h3> 
+      <h3 class="player2-wins">0 wins!</h3> 
     </aside>
-    <script type=“text/javascript” src=“main.js”></script>
+    <script type="text/javascript" src="./src/player.js"></script>
+    <script type="text/javascript" src="./src/game.js"></script>
+    <script type="text/javascript" src="./src/main.js"></script>
   </body>
 </html>

@@ -1,3 +1,7 @@
+* {
+  /* border: 1px solid red */
+  }
+
   /* ***** GLOBAL RULES ***** */
 body {
   display: flex; 
@@ -72,6 +76,20 @@ h1 {
 .h,
 .i {
   margin-top: 0;
+}
+
+.play-token {
+  position: absolute;
+  font-size: 4em;
+  padding-left: 1.1em;
+}
+
+.middle-row {
+  padding-top: 2.5em;
+}
+
+.bottom-row {
+  padding-top: 5em;
 }
 
 .visibility-hidden {
