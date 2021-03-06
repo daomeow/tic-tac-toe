@@ -1,132 +1,47 @@
 var game = new Game();
 
-var topLeft = document.querySelector('#a');
-var topMiddle = document.querySelector('#b');
-var topRight = document.querySelector('#c');
-var middleLeft = document.querySelector('#d');
-var middleMiddle = document.querySelector('#e');
-var middleRight = document.querySelector('#f');
-var bottomLeft = document.querySelector('#g');
-var bottomMiddle = document.querySelector('#h');
-var bottomRight = document.querySelector('#i');
 var player1Turn = document.querySelector('#player1Turn');
 var player2Turn = document.querySelector('#player2Turn');
+var board = document.querySelector('.board-container');
 
-// window.addEventListener('load', loadGame);
-topLeft.addEventListener('click', playTopLeft);
-topMiddle.addEventListener('click', playTopMiddle);
-topRight.addEventListener('click', playTopRight);
-middleLeft.addEventListener('click', playMiddleLeft);
-middleMiddle.addEventListener('click', playMiddleMiddle);
-middleRight.addEventListener('click', playMiddleRight);
-bottomLeft.addEventListener('click', playBottomLeft);
-bottomMiddle.addEventListener('click', playBottomMiddle);
-bottomRight.addEventListener('click', playBottomRight);
+document.addEventListener('click', displayHtml);
 
-function   addToken(token, htmlContainer) {
+function addToken(token, htmlContainer) {
   htmlContainer.innerHTML += `
     <p class="play-token">${token}</p>
   `
 };
 
-function playTopLeft() {
+function displayHtml(event) {
+  var clickedCell = event.target.closest('.spot')
   var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, topLeft);
-  game.gameState.splice(0, 1, token);
-  game.switchTurns;
-};
 
-function playTopMiddle() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, topMiddle);
-  game.gameState.splice(1, 1, token);
-  game.switchTurns;
-};
+  if (validCell(event)) {
+    addToken(token, clickedCell);
+    displayWhoseTurn();
+    game.gameState[clickedCell.id] = token;
+  } 
+}
 
-function playTopRight() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, topRight);
-  game.gameState.splice(2, 1, token);
-  game.switchTurns;
-  console.log(game.gameState)
-};
+function validCell(event) {
+  var clickedCell = event.target.closest('.spot')
 
-function playMiddleLeft() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, middleLeft);
-  game.gameState.splice(3, 1, token);
-  game.switchTurns;
-};
-
-function playMiddleMiddle() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, middleMiddle);
-  game.gameState.splice(4, 1, token);
-  game.switchTurns;
-};
-
-function playMiddleRight() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, middleRight);
-  game.gameState.splice(5, 1, token);
-  game.switchTurns;
-};
-
-function playBottomLeft() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, bottomLeft);
-  game.gameState.splice(6, 1, token);
-  game.switchTurns;
-};
-
-function playBottomMiddle() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, bottomMiddle);
-  game.gameState.splice(7, 1, token);
-  game.switchTurns; 
-};
-
-function playBottomRight() {
-  var token = game.determineTurn();
-  
-  displayWhoseTurn();
-  addToken(token, bottomRight);
-  game.gameState.splice(8, 1, token);
-  game.switchTurns;
-  console.log(game.gameState)
+  if (game.gameState[clickedCell.id] === "") {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 function displayWhoseTurn() {
   if (game.turn) {
-    console.log('true')
     show(player2Turn);
     hide(player1Turn);
   } else {
-    console.log('false')
     show(player1Turn);
     hide(player2Turn);
   }
-}
-
-function markInvalidCell() {
-  game.validCell = false;
-}
+};
 
 function show(element) {
   element.classList.remove('visibility-hidden');

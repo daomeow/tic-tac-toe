@@ -5,7 +5,7 @@ class Game {
     this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
-    this.gameState = ["", "", "", "", "", "", "", "", ""];
+    this.gameState = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
     // this.winner = null;
   }
   
