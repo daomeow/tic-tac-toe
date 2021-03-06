@@ -78,25 +78,10 @@ h1 {
   margin-top: 0;
 }
 
-.player1-playLeft,
-.player2-playLeft {
+.play-token {
   position: absolute;
   font-size: 4em;
-  padding-left: 1.2em;
-}
-
-.player1-playMiddle,
-.player2-playMiddle {
-  position: absolute;
-  font-size: 4em;
-  padding-left: 4.1em;
-}
-
-.player1-playRight,
-.player2-playRight {
-  position: absolute;
-  font-size: 4em;
-  padding-left: 7em;
+  padding-left: 1.1em;
 }
 
 .middle-row {
