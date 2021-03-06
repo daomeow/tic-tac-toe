@@ -9,6 +9,8 @@ var middleRight = document.querySelector('#f');
 var bottomLeft = document.querySelector('#g');
 var bottomMiddle = document.querySelector('#h');
 var bottomRight = document.querySelector('#i');
+var player1Turn = document.querySelector('#player1Turn');
+var player2Turn = document.querySelector('#player2Turn');
 
 // window.addEventListener('load', loadGame);
 topLeft.addEventListener('click', playTopLeft);
@@ -28,40 +30,103 @@ function   addToken(token, htmlContainer) {
 };
 
 function playTopLeft() {
-  addToken(game.determineTurn(), topLeft);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, topLeft);
+  game.gameState.splice(0, 1, token);
+  game.switchTurns;
 };
 
 function playTopMiddle() {
-  addToken(game.determineTurn(), topMiddle);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, topMiddle);
+  game.gameState.splice(1, 1, token);
+  game.switchTurns;
 };
 
 function playTopRight() {
-  addToken(game.determineTurn(), topRight);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, topRight);
+  game.gameState.splice(2, 1, token);
+  game.switchTurns;
+  console.log(game.gameState)
 };
 
 function playMiddleLeft() {
-  addToken(game.determineTurn(), middleLeft);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, middleLeft);
+  game.gameState.splice(3, 1, token);
+  game.switchTurns;
 };
 
 function playMiddleMiddle() {
-  addToken(game.determineTurn(), middleMiddle);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, middleMiddle);
+  game.gameState.splice(4, 1, token);
+  game.switchTurns;
 };
 
 function playMiddleRight() {
-  addToken(game.determineTurn(), middleRight);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, middleRight);
+  game.gameState.splice(5, 1, token);
+  game.switchTurns;
 };
 
 function playBottomLeft() {
-  addToken(game.determineTurn(), bottomLeft);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, bottomLeft);
+  game.gameState.splice(6, 1, token);
+  game.switchTurns;
 };
 
 function playBottomMiddle() {
-  addToken(game.determineTurn(), bottomMiddle);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, bottomMiddle);
+  game.gameState.splice(7, 1, token);
+  game.switchTurns; 
 };
 
 function playBottomRight() {
-  addToken(game.determineTurn(), bottomRight);
+  var token = game.determineTurn();
+  
+  displayWhoseTurn();
+  addToken(token, bottomRight);
+  game.gameState.splice(8, 1, token);
+  game.switchTurns;
+  console.log(game.gameState)
 };
+
+function displayWhoseTurn() {
+  if (game.turn) {
+    console.log('true')
+    show(player2Turn);
+    hide(player1Turn);
+  } else {
+    console.log('false')
+    show(player1Turn);
+    hide(player2Turn);
+  }
+}
+
+function markInvalidCell() {
+  game.validCell = false;
+}
 
 function show(element) {
   element.classList.remove('visibility-hidden');

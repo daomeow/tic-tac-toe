@@ -5,21 +5,20 @@ class Game {
     this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
+    this.gameState = ["", "", "", "", "", "", "", "", ""];
     // this.winner = null;
   }
   
   determineTurn() {
     this.switchTurns();
-    console.log('made it')
     if (this.turn) {
       return '🦊';
     } else {
-      return  '🐙';
+      return '🐙';
     }
   }
-
+  
   switchTurns() {
-    console.log('switch turns')
     this.turn = !this.turn;
     return this.turn;
   }
