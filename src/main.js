@@ -50,14 +50,3 @@ function show(element) {
 function hide(element) {
   element.classList.add('visibility-hidden');
 };
-
-// Play >> event.target
-// Check if the game is over 
-// Next turn 
-// Available squares >> return !this.state.marks[param];
-
-// Tracks clicked cell
-// was click valid? 
-// Update game's state
-// Validate game state > has player won/draw?
-// Either stop game or change active player 
