@@ -6,7 +6,6 @@ class Game {
     this.turn = false;
     this.gameOver = false;
     this.gameState = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
-    // this.winner = null;
   }
   
   determineTurn() {
