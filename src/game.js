@@ -1,15 +1,27 @@
 class Game {
-  constructor(turn) {
+  constructor() {
     this.players = [new Player({id: 1, turn: true, token: '🦊'}, 
       new Player({id: 2, turn: false, token:'🐙'}))];
     this.activeSpots = [];
-    this.turn = turn;
+    this.turn = false;
     this.gameOver = false;
-    this.winner = null;
+    // this.winner = null;
   }
   
-  displayTurn() {
+  determineTurn() {
+    this.switchTurns();
+    console.log('made it')
+    if (this.turn) {
+      return '🦊';
+    } else {
+      return  '🐙';
+    }
+  }
 
+  switchTurns() {
+    console.log('switch turns')
+    this.turn = !this.turn;
+    return this.turn;
   }
 
   detectDraw() {

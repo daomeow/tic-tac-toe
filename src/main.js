@@ -1,4 +1,4 @@
-// var newGame = new Game(turn);
+var game = new Game();
 
 var topLeft = document.querySelector('#a');
 var topMiddle = document.querySelector('#b');
@@ -9,8 +9,6 @@ var middleRight = document.querySelector('#f');
 var bottomLeft = document.querySelector('#g');
 var bottomMiddle = document.querySelector('#h');
 var bottomRight = document.querySelector('#i');
-
-
 
 // window.addEventListener('load', loadGame);
 topLeft.addEventListener('click', playTopLeft);
@@ -30,39 +28,39 @@ function   addToken(token, htmlContainer) {
 };
 
 function playTopLeft() {
-  addToken('🐙', topLeft);
+  addToken(game.determineTurn(), topLeft);
 };
 
 function playTopMiddle() {
-  addToken('🐙', topMiddle);
+  addToken(game.determineTurn(), topMiddle);
 };
 
 function playTopRight() {
-  addToken('🐙', topRight);
+  addToken(game.determineTurn(), topRight);
 };
 
 function playMiddleLeft() {
-  addToken('🐙', middleLeft);
+  addToken(game.determineTurn(), middleLeft);
 };
 
 function playMiddleMiddle() {
-  addToken('🐙', middleMiddle);
+  addToken(game.determineTurn(), middleMiddle);
 };
 
 function playMiddleRight() {
-  addToken('🐙', middleRight);
+  addToken(game.determineTurn(), middleRight);
 };
 
 function playBottomLeft() {
-  addToken('🐙', bottomLeft);
+  addToken(game.determineTurn(), bottomLeft);
 };
 
 function playBottomMiddle() {
-  addToken('🐙', bottomMiddle);
+  addToken(game.determineTurn(), bottomMiddle);
 };
 
 function playBottomRight() {
-  addToken('🐙', bottomRight);
+  addToken(game.determineTurn(), bottomRight);
 };
 
 function show(element) {
