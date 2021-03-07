@@ -22,9 +22,9 @@ class Game {
   determineTurn() {
     this.switchTurns();
     if (this.turn) {
-      return '🦊';
+      return this.players[0].token;
     } else {
-      return '🐙';
+      return this.players[1].token;
     }
   }
   
@@ -40,8 +40,6 @@ class Game {
         checkCells.push(i);
       }
     }
-    // checkCells.sort();
-    // console.log(checkCells);
     return checkCells;
   }  
 
@@ -55,9 +53,12 @@ class Game {
           match++;
         }
       }
+
       if (match === 3) {
         this.gameOver = true;
         this.saveWin();
+        this.clearGameState();
+        this.resetGame();
         return;
       } else {
         match = 0;
@@ -78,6 +79,19 @@ class Game {
   }  
 
   resetGame() {
+    if (this.gameOver) {
+      setTimeout(function() {window.location.reload()}, 3000);
+    }
+  }
+
+  clearGameState() {
+    var keys = Object.keys(this.gameState);
+
+    for (keys in this.gameState) {
+      if (this.gameState.hasOwnProperty(keys)) {
+        this.gameState[keys] = "";
+      }
+    }
   }
 }
 

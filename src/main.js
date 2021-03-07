@@ -10,6 +10,11 @@ var player2Sidebar = document.querySelector('.player2-sidebar');
 window.addEventListener('load', displaySidebar);
 document.addEventListener('click', displayHtml);
 
+function determineCell(event) {
+  var clickedCell = event.target.closest('.spot')
+  return clickedCell;
+};
+
 function addToken(token, htmlContainer) {
   htmlContainer.innerHTML += `
     <p class="play-token">${token}</p>
@@ -17,7 +22,7 @@ function addToken(token, htmlContainer) {
 };
 
 function displayHtml(event) {
-  var clickedCell = event.target.closest('.spot')
+  var clickedCell = determineCell(event);
   var token = game.determineTurn();
 
   if (validCell(event) && !game.gameOver) {
