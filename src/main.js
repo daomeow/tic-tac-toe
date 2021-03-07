@@ -20,7 +20,7 @@ function displayHtml(event) {
     addToken(token, clickedCell);
     displayWhoseTurn();
     game.gameState[clickedCell.id] = game.turn;
-    game.playerCells();
+    game.detectWinner();
   } 
 };
 
