@@ -56,6 +56,7 @@ class Game {
         }
       }
       if (match === 3) {
+        this.gameOver = true;
         console.log('winner')
         return;
       } else {
