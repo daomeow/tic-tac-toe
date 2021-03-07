@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.players = [new Player({id: 1, turn: true, token: '🦊'}, 
-      new Player({id: 2, turn: false, token:'🐙'}))];
+    this.players = [new Player(1, true, '🦊'), 
+      new Player(2, false, '🐙')];
     this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
@@ -57,25 +57,25 @@ class Game {
       }
       if (match === 3) {
         this.gameOver = true;
-        console.log('winner')
+        this.saveWin();
         return;
       } else {
         match = 0;
       }
     } 
   }
-
+  
   detectDraw() {
-  // No empty strings within this.gameState
+    // No empty strings within this.gameState
   }
   
   saveWin() {
-    if (this.player[0].hasWon) {
-      this.player[0].wins++;
+    if (this.gameOver && this.turn) {
+      this.players[0].wins++;
     } else {
-      this.player[1].wins++;
-    }
-  } 
+      this.players[1].wins++;
+    }    
+  }  
 
   resetGame() {
   }

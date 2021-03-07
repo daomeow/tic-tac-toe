@@ -4,7 +4,10 @@ var player1Turn = document.querySelector('#player1Turn');
 var player2Turn = document.querySelector('#player2Turn');
 var header = document.querySelector('.header-container');
 var board = document.querySelector('.board-container');
+var player1Sidebar = document.querySelector('.player1-sidebar');  
+var player2Sidebar = document.querySelector('.player2-sidebar');  
 
+window.addEventListener('load', displaySidebar);
 document.addEventListener('click', displayHtml);
 
 function addToken(token, htmlContainer) {
@@ -23,6 +26,7 @@ function displayHtml(event) {
     game.gameState[clickedCell.id] = game.turn;
     game.detectWinner();
     displayWinner();
+    displaySidebar();
   } 
 };
 
@@ -58,7 +62,19 @@ function displayWinner() {
     <h1 class="winner">🐙 won!</h1>
     `
   }
-}
+};
+
+function createWins(htmlContainer, token, wins) {
+  htmlContainer.innerHTML = `
+    <h2>${token}</h2>
+    <h3 class="player1-wins">${wins} wins!</h3>
+  `
+};
+
+function displaySidebar() {
+  createWins(player1Sidebar, game.players[0].token, game.players[0].wins);
+  createWins(player2Sidebar, game.players[1].token, game.players[1].wins);
+};
 
 function show(element) {
   element.classList.remove('visibility-hidden');
