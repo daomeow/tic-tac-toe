@@ -19,12 +19,13 @@ function displayHtml(event) {
   if (validCell(event)) {
     addToken(token, clickedCell);
     displayWhoseTurn();
-    game.gameState[clickedCell.id] = token;
+    game.gameState[clickedCell.id] = game.turn;
+    game.playerCells();
   } 
-}
+};
 
 function validCell(event) {
-  var clickedCell = event.target.closest('.spot')
+  var clickedCell = event.target.closest('.spot');
 
   if (game.gameState[clickedCell.id] === "") {
     return true;
