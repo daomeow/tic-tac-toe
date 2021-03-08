@@ -1,4 +1,8 @@
-  /* ***** GLOBAL RULES ***** */
+* {
+  /* border: 1px solid red */
+  }
+  
+/* ***** GLOBAL RULES ***** */
 body {
   display: flex; 
   justify-content: space-between;

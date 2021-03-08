@@ -1,14 +1,20 @@
 var game = new Game();
 
-var player1Turn = document.querySelector('#player1Turn');
-var player2Turn = document.querySelector('#player2Turn');
-var header = document.querySelector('.header-container');
 var board = document.querySelector('.board-container');
+var header = document.querySelector('.header-container');
 var player1Sidebar = document.querySelector('.player1-sidebar');  
 var player2Sidebar = document.querySelector('.player2-sidebar');  
+var player1Turn = document.querySelector('#player1Turn');
+var player2Turn = document.querySelector('#player2Turn');
 
-window.addEventListener('load', displaySidebar);
-document.addEventListener('click', gamePlay);
+window.addEventListener('load', pageLoad);
+document.addEventListener('click', playGame);
+
+
+function pageLoad() {
+  game.retrieveWins();
+  displaySidebar();
+};
 
 function determineCell(event) {
   var clickedCell = event.target.closest('.cell');
@@ -21,12 +27,12 @@ function addToken(token, htmlContainer) {
   `
 };
 
-function gamePlay(event) {
+function playGame(event) {
   var clickedCell = determineCell(event);
-  var token = game.determineTurn();
-
+  var player = game.determineTurn();
+  
   if (validCell(event) && !game.gameOver) {
-    addToken(token, clickedCell);
+    addToken(player.token, clickedCell);
     displayWhoseTurn();
     game.gameState[clickedCell.id] = game.turn;
     game.detectWinner();
