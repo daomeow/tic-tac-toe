@@ -11,7 +11,7 @@ window.addEventListener('load', displaySidebar);
 document.addEventListener('click', gamePlay);
 
 function determineCell(event) {
-  var clickedCell = event.target.closest('.spot');
+  var clickedCell = event.target.closest('.cell');
   return clickedCell;
 };
 
@@ -36,9 +36,9 @@ function gamePlay(event) {
 };
 
 function validCell(event) {
-  var clickedCell = event.target.closest('.spot');
+  var clickedCell = event.target.closest('.cell');
 
-  if (game.gameState[clickedCell.id] === "") {
+  if (clickedCell && game.gameState[clickedCell.id] === "") {
     return true;
   } else {
     return false;
