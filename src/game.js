@@ -4,7 +4,6 @@ class Game {
       new Player(1, true, '🦊'), 
       new Player(2, false, '🐙')
     ];
-    this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
     this.winner = "";
@@ -63,6 +62,7 @@ class Game {
         this.clearGameState();
         this.resetGame();
         this.winner = this.turn;
+        return; 
       } else {
         match = 0;
       }
@@ -82,12 +82,14 @@ class Game {
     if (markedSpacesCount === 9) {
       this.gameOver = true;
       this.clearGameState();
+      this.resetGame();
     }
   }
 
   saveWin() {
     if (this.gameOver && this.turn) {
-      this.players[0].wins++;
+      this.players[0].wins += 1;
+      console.log(this.players[0].wins)
       this.players[0].saveWinsToStorage();
     } else {
       this.players[1].wins++;
