@@ -8,10 +8,10 @@ var player1Sidebar = document.querySelector('.player1-sidebar');
 var player2Sidebar = document.querySelector('.player2-sidebar');  
 
 window.addEventListener('load', displaySidebar);
-document.addEventListener('click', displayHtml);
+document.addEventListener('click', gamePlay);
 
 function determineCell(event) {
-  var clickedCell = event.target.closest('.spot')
+  var clickedCell = event.target.closest('.spot');
   return clickedCell;
 };
 
@@ -21,7 +21,7 @@ function addToken(token, htmlContainer) {
   `
 };
 
-function displayHtml(event) {
+function gamePlay(event) {
   var clickedCell = determineCell(event);
   var token = game.determineTurn();
 
@@ -30,7 +30,7 @@ function displayHtml(event) {
     displayWhoseTurn();
     game.gameState[clickedCell.id] = game.turn;
     game.detectWinner();
-    displayWinner();
+    displayHeader();
     displaySidebar();
   } 
 };
@@ -55,18 +55,33 @@ function displayWhoseTurn() {
   }
 };
 
-function displayWinner() {
-  if (game.gameOver && game.turn) {
+function displayHeader() {
+  var checkDraw = validateDraw();
+
+  if (game.gameOver && game.winner && !checkDraw) {
     hide (player2Turn);
     header.innerHTML += `
-    <h1 class="winner">🦊 won!</h1>
+      <h1 class="winner">🦊 won!</h1>
     `
-  } else if (game.gameOver && !game.turn) {
+  } else if (game.gameOver && !game.winner && !checkDraw) {
     hide(player1Turn);
     header.innerHTML += `
-    <h1 class="winner">🐙 won!</h1>
+      <h1 class="winner">🐙 won!</h1>
     `
   }
+};
+
+function validateDraw() {
+  if (game.gameOver && game.winner === "") {
+    hide(player1Turn);
+    hide (player2Turn);
+    header.innerHTML += `
+      <h1 class="winner">It's a draw!</h1>
+    `
+    return true;
+  } else {
+    return false;
+  } 
 };
 
 function createWins(htmlContainer, token, wins) {

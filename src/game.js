@@ -5,6 +5,7 @@ class Game {
     this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
+    this.winner = "";
     this.gameState = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
     this.possibleWins = [
       ['a', 'b', 'c'],
@@ -59,17 +60,16 @@ class Game {
         this.saveWin();
         this.clearGameState();
         this.resetGame();
-        return;
+        this.winner = this.turn;
+        return match;
       } else {
         match = 0;
       }
     }
-    this.detectDraw(); 
+    this.detectDraw();
   }
   
   detectDraw() {
-    // console.log('made it here')
-
     for (var i in this.gameState) {
       if (this.gameState[i] === "") {
         return;
@@ -78,7 +78,6 @@ class Game {
     this.gameOver = true;
     this.resetGame();
     this.clearGameState();
-    console.log('ues')
   }
   
   saveWin() {
