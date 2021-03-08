@@ -6,7 +6,6 @@ class Game {
     this.turn = false;
     this.gameOver = false;
     this.gameState = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
-    this.gamePlay = [];
     this.possibleWins = [
       ['a', 'b', 'c'],
       ['d', 'e', 'f'],
@@ -35,6 +34,7 @@ class Game {
 
   playerCells() {
     var checkCells = []; 
+    
     for (var i in this.gameState) {
       if (this.gameState[i] === this.turn) {
         checkCells.push(i);
@@ -63,11 +63,22 @@ class Game {
       } else {
         match = 0;
       }
-    } 
+    }
+    this.detectDraw(); 
   }
   
   detectDraw() {
-    // No empty strings within this.gameState
+    // console.log('made it here')
+
+    for (var i in this.gameState) {
+      if (this.gameState[i] === "") {
+        return;
+      }
+    }   
+    this.gameOver = true;
+    this.resetGame();
+    this.clearGameState();
+    console.log('ues')
   }
   
   saveWin() {
@@ -93,7 +104,7 @@ class Game {
       }
     }
   }
-}
+};
 
 
 
