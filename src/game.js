@@ -1,19 +1,30 @@
 class Game {
   constructor() {
-    this.players = [new Player({id: 1, turn: true, token: '🦊'}, 
-      new Player({id: 2, turn: false, token:'🐙'}))];
+    this.players = [new Player(1, true, '🦊'), 
+      new Player(2, false, '🐙')];
     this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
+    this.winner = "";
     this.gameState = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
+    this.possibleWins = [
+      ['a', 'b', 'c'],
+      ['d', 'e', 'f'],
+      ['g', 'h', 'i'],
+      ['a', 'd', 'g'],
+      ['b', 'e', 'h'],
+      ['c', 'f', 'i'],
+      ['a', 'e', 'i'],
+      ['c', 'e', 'g']
+    ];
   }
   
   determineTurn() {
     this.switchTurns();
     if (this.turn) {
-      return '🦊';
+      return this.players[0].token;
     } else {
-      return '🐙';
+      return this.players[1].token;
     }
   }
   
@@ -22,18 +33,82 @@ class Game {
     return this.turn;
   }
 
-  detectDraw() {
+  playerCells() {
+    var checkCells = []; 
+    
+    for (var i in this.gameState) {
+      if (this.gameState[i] === this.turn) {
+        checkCells.push(i);
+      }
+    }
+    return checkCells;
+  }  
+
+  detectWinner() {
+    var playerSpots = this.playerCells();
+    var match = 0;
+
+    for (var i = 0; i < this.possibleWins.length; i++) {
+      for (var m = 0; m < playerSpots.length; m++) {
+        if (this.possibleWins[i].includes(playerSpots[m])) {
+          match++;
+        }
+      }
+
+      if (match === 3) {
+        this.gameOver = true;
+        this.saveWin();
+        this.clearGameState();
+        this.resetGame();
+        this.winner = this.turn;
+        return match;
+      } else {
+        match = 0;
+      }
+    }
+    this.detectDraw();
   }
   
-  //win conditions
+  detectDraw() {
+    for (var i in this.gameState) {
+      if (this.gameState[i] === "") {
+        return;
+      }
+    }   
+    this.gameOver = true;
+    this.resetGame();
+    this.clearGameState();
+  }
+  
   saveWin() {
-    if (this.player[0].hasWon) {
-      this.player[0].wins++;
+    if (this.gameOver && this.turn) {
+      this.players[0].wins++;
     } else {
-      this.player[1].wins++;
-    }
-  } 
+      this.players[1].wins++;
+    }    
+  }  
 
   resetGame() {
+    if (this.gameOver) {
+      setTimeout(function() {window.location.reload()}, 3000);
+    }
   }
-}
+
+  clearGameState() {
+    var keys = Object.keys(this.gameState);
+
+    for (keys in this.gameState) {
+      if (this.gameState.hasOwnProperty(keys)) {
+        this.gameState[keys] = "";
+      }
+    }
+  }
+};
+
+
+
+
+
+    
+
+

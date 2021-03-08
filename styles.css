@@ -1,19 +1,17 @@
-* {
-  /* border: 1px solid red */
-  }
-
   /* ***** GLOBAL RULES ***** */
 body {
   display: flex; 
   justify-content: space-between;
   height: 98vh;
   font-family: 'Shippori Mincho B1', serif; 
+  margin: 0;
   }
 
 /* ***** SIDEBARS ***** */  
 .player1-sidebar,
 .player2-sidebar {
   width: 30em;
+  height: 100vh;
   background-color: #c5ecdf;
   display: flex;
   flex-direction: column;
@@ -50,7 +48,7 @@ h1 {
   margin-top: 3.5em;
 }
 
-.spot {
+.cell {
   height: 11em;
   width: 12em;
 }
