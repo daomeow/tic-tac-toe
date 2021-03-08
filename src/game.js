@@ -1,7 +1,9 @@
 class Game {
   constructor() {
-    this.players = [new Player(1, true, '🦊'), 
-      new Player(2, false, '🐙')];
+    this.players = [
+      new Player(1, true, '🦊'), 
+      new Player(2, false, '🐙')
+    ];
     this.activeSpots = [];
     this.turn = false;
     this.gameOver = false;
@@ -22,9 +24,9 @@ class Game {
   determineTurn() {
     this.switchTurns();
     if (this.turn) {
-      return this.players[0].token;
+      return this.players[0];
     } else {
-      return this.players[1].token;
+      return this.players[1];
     }
   }
   
@@ -47,7 +49,7 @@ class Game {
   detectWinner() {
     var playerSpots = this.playerCells();
     var match = 0;
-
+   
     for (var i = 0; i < this.possibleWins.length; i++) {
       for (var m = 0; m < playerSpots.length; m++) {
         if (this.possibleWins[i].includes(playerSpots[m])) {
@@ -61,7 +63,6 @@ class Game {
         this.clearGameState();
         this.resetGame();
         this.winner = this.turn;
-        return match;
       } else {
         match = 0;
       }
@@ -70,23 +71,35 @@ class Game {
   }
   
   detectDraw() {
+    var markedSpacesCount = 0;
+    
     for (var i in this.gameState) {
-      if (this.gameState[i] === "") {
-        return;
+      if (this.gameState[i] !== "") {
+        markedSpacesCount++;
       }
-    }   
-    this.gameOver = true;
-    this.resetGame();
-    this.clearGameState();
+    }  
+
+    if (markedSpacesCount === 9) {
+      this.gameOver = true;
+      this.clearGameState();
+    }
   }
-  
+
   saveWin() {
     if (this.gameOver && this.turn) {
       this.players[0].wins++;
+      this.players[0].saveWinsToStorage();
     } else {
       this.players[1].wins++;
+      this.players[1].saveWinsToStorage();
     }    
-  }  
+  }
+
+  retrieveWins() {
+    for (var i = 0; i < this.players.length; i++) {
+      this.players[i].retrieveWinsFromStorage();
+    }
+  }
 
   resetGame() {
     if (this.gameOver) {
