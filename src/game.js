@@ -4,7 +4,7 @@ class Game {
       new Player(1, true, '🦊'), 
       new Player(2, false, '🐙')
     ];
-    this.turn = false;
+    this.turn = true;
     this.gameOver = false;
     this.winner = "";
     this.gameState = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
@@ -19,19 +19,17 @@ class Game {
       ['c', 'e', 'g']
     ];
   }
-  
-  determineTurn() {
-    this.switchTurns();
+
+  switchTurns() {
+    this.turn = !this.turn;
+  }
+
+  currentPlayer() {
     if (this.turn) {
       return this.players[0];
     } else {
       return this.players[1];
     }
-  }
-  
-  switchTurns() {
-    this.turn = !this.turn;
-    return this.turn;
   }
 
   playerCells() {
@@ -60,7 +58,7 @@ class Game {
         this.gameOver = true;
         this.saveWin();
         this.clearGameState();
-        this.resetGame();
+        // this.resetGame();
         this.winner = this.turn;
         return; 
       } else {
@@ -82,14 +80,13 @@ class Game {
     if (markedSpacesCount === 9) {
       this.gameOver = true;
       this.clearGameState();
-      this.resetGame();
+      // this.resetGame();
     }
   }
 
   saveWin() {
     if (this.gameOver && this.turn) {
       this.players[0].wins += 1;
-      console.log(this.players[0].wins)
       this.players[0].saveWinsToStorage();
     } else {
       this.players[1].wins++;

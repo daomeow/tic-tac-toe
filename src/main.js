@@ -29,15 +29,16 @@ function addToken(token, htmlContainer) {
 
 function playGame(event) {
   var clickedCell = determineCell(event);
-  var player = game.determineTurn();
+  var player = game.currentPlayer();
   
   if (validCell(event) && !game.gameOver) {
     addToken(player.token, clickedCell);
     displayWhoseTurn();
     game.gameState[clickedCell.id] = game.turn;
     game.detectWinner();
-    displayHeader();
+    displayWinner();
     displaySidebar();
+    game.switchTurns();
   } 
 };
 
@@ -51,28 +52,15 @@ function validCell(event) {
   }
 };
 
-function displayWhoseTurn() {
-  if (game.turn) {
-    show(player2Turn);
-    hide(player1Turn);
-  } else {
-    show(player1Turn);
-    hide(player2Turn);
-  }
-};
-
-function displayHeader() {
+function displayWinner() {
   var checkDraw = validateDraw();
+  var player = game.currentPlayer();
 
-  if (game.gameOver && game.winner && !checkDraw) {
+  if (game.gameOver && !checkDraw) {
+    hide (player1Turn);
     hide (player2Turn);
     header.innerHTML += `
-      <h1 class="winner">🦊 won!</h1>
-    `
-  } else if (game.gameOver && !game.winner && !checkDraw) {
-    hide(player1Turn);
-    header.innerHTML += `
-      <h1 class="winner">🐙 won!</h1>
+      <h1 class="winner">${player.token} won!</h1>
     `
   }
 };
@@ -100,6 +88,16 @@ function createWins(htmlContainer, token, wins) {
 function displaySidebar() {
   createWins(player1Sidebar, game.players[0].token, game.players[0].wins);
   createWins(player2Sidebar, game.players[1].token, game.players[1].wins);
+};
+
+function displayWhoseTurn() {
+  if (game.turn) {
+    show(player2Turn);
+    hide(player1Turn);
+  } else {
+    show(player1Turn);
+    hide(player2Turn);
+  }
 };
 
 function show(element) {
