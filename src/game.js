@@ -58,7 +58,7 @@ class Game {
         this.gameOver = true;
         this.saveWin();
         this.clearGameState();
-        // this.resetGame();
+        this.resetGame();
         this.winner = this.turn;
         return; 
       } else {
@@ -80,7 +80,7 @@ class Game {
     if (markedSpacesCount === 9) {
       this.gameOver = true;
       this.clearGameState();
-      // this.resetGame();
+      this.resetGame();
     }
   }
 

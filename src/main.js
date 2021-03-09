@@ -80,7 +80,7 @@ function validateDraw() {
 function createWins(htmlContainer, token, wins) {
   htmlContainer.innerHTML = `
     <h2>${token}</h2>
-    <h3 class="player1-wins">${wins} wins!</h3>
+    <h3>${wins} wins!</h3>
   `
 };
 
