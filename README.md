@@ -8,7 +8,7 @@
 - The winner of that round will receive one point
 - If there is no winner, by the 9th turn, it will be considered a draw
 - **The game will reset itself 3 second** after there is a winner or it ends in a draw
-![tic-tac-toe1](./assets/tic-tac-toe1.png)
+![tic-tac-toe2](./assets/tic-tac-toe2.png)
 
 ## Setup
 - Fork this project to your own Github account
