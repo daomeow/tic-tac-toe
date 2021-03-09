@@ -1,5 +1,5 @@
 # Tic Tac Toe
-#### Be the first player to get there in a row!
+### Be the first player to get there in a row!
 ![tic-tac-toe1](./assets/tic-tac-toe1.png)
 
 ## Description
