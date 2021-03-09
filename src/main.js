@@ -1,15 +1,14 @@
 var game = new Game();
 
-var board = document.querySelector('.board-container');
-var header = document.querySelector('.header-container');
-var player1Sidebar = document.querySelector('.player1-sidebar');  
-var player2Sidebar = document.querySelector('.player2-sidebar');  
+var board = document.querySelector('#boardContainer');
+var header = document.querySelector('#headerContainer');
+var player1Sidebar = document.querySelector('#player1Sidebar');  
+var player2Sidebar = document.querySelector('#player2Sidebar');  
 var player1Turn = document.querySelector('#player1Turn');
 var player2Turn = document.querySelector('#player2Turn');
 
 window.addEventListener('load', pageLoad);
 document.addEventListener('click', playGame);
-
 
 function pageLoad() {
   game.retrieveWins();
@@ -33,8 +32,8 @@ function playGame(event) {
   
   if (validCell(event) && !game.gameOver) {
     addToken(player.token, clickedCell);
-    displayWhoseTurn();
     game.gameState[clickedCell.id] = game.turn;
+    displayWhoseTurn();
     game.detectWinner();
     displayWinner();
     displaySidebar();
