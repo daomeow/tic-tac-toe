@@ -7,7 +7,7 @@
 - Players alternate adding their tokens on the board until either player has three in a row [horizontally, vertically, or diagonally]
 - The winner of that round will receive one point
 - If there is no winner, by the 9th turn, it will be considered a draw
-- **The game will reset itself 3 second** after there is a winner or it ends in a draw
+- **The game will reset itself 3 second** after there is a winner or if it ends in a draw
 ![tic-tac-toe2](./assets/tic-tac-toe2.png)
 
 ## Setup
