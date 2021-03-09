@@ -8,15 +8,13 @@
     <title>Tic Tac Toe</title>  
   </head>
   <body>
-    <aside class="player1-sidebar">
-    </aside>
-    <main class="main-container
-    ">
-      <section class="header-container">
+    <aside class="player-sidebar" id="player1Sidebar"></aside>
+    <main class="main-container">
+      <section id="headerContainer">
         <h1 class="player1-turn" id="player1Turn">It's 🦊's turn</h1>
         <h1 class="player2-turn visibility-hidden" id="player2Turn">It's 🐙's turn</h1>
       </section>
-      <section class="board-container">
+      <section class="board-container" id="boardContainer">
         <p class="cell a" id="a"></p>
         <p class="cell b" id="b"></p>
         <p class="cell c" id="c"></p>    
@@ -28,8 +26,7 @@
         <p class="cell i" id="i"></p>
       </section>
     </main>
-    <aside class="player2-sidebar">
-    </aside>
+    <aside class="player-sidebar" id="player2Sidebar"></aside>
     <script type="text/javascript" src="./src/player.js"></script>
     <script type="text/javascript" src="./src/game.js"></script>
     <script type="text/javascript" src="./src/main.js"></script>
