@@ -20,5 +20,5 @@
 - 6 days were spent on this iteration of Tic Tac Toe
 - Goal: locally store to persist players' wins after each round 
 
-## Authors
+## Author
 Melanie Daoheuang [@daomeow](https://github.com/daomeow)
