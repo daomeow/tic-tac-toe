@@ -3,10 +3,11 @@
 ![tic-tac-toe1](./assets/tic-tac-toe1.png)
 
 ## Description
-- The player who is a fox, will alway go first
-- Players alternate playing their tokens on the board until either player has three in a row [horizontally, vertically, or diagonally]
-- By the 9th turn, if there is no winner it will be a draw and no one  gets any points
-- The game **will reset itself 3 second** after a game has been won or there has been a draw
+- The player who is the fox, will always go first
+- Players alternate adding their tokens on the board until either player has three in a row [horizontally, vertically, or diagonally]
+- The winner of that round will receive one point
+- If there is no winner, by the 9th turn, it will be considered a draw
+- **The game will reset itself 3 second** after there is a winner or it ends in a draw
 ![tic-tac-toe1](./assets/tic-tac-toe1.png)
 
 ## Setup
